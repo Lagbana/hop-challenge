@@ -3,8 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
-import { DataStoreService } from './data-store/data-store.service';
-import { DataStoreModule } from './data-store/data-store.module';
+import { UtilsModule } from './utils/utils.module';
 
 @Module({
   imports: [
@@ -15,8 +14,8 @@ import { DataStoreModule } from './data-store/data-store.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       introspection: true,
     }),
-    DataStoreModule,
+    UtilsModule,
   ],
-  providers: [AppService, DataStoreService],
+  providers: [AppService],
 })
 export class AppModule {}
