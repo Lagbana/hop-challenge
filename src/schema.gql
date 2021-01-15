@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: Float!
+  title: String!
+  body_html: String!
+  published_at: String!
+  vendor: String!
+  product_type: String!
+  tags: [String!]!
+  variants: [Variant!]!
+}
+
+type FeaturedImage {
+  id: Float!
+  width: Float!
+  height: Float!
+  src: String!
+}
+
+type Variant {
+  sku: String!
+  featured_image: FeaturedImage!
+  price: String!
+  grams: Float!
+}
+
+type Query {
+  getProducts: [Product!]!
+}
