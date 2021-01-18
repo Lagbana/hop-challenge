@@ -1,9 +1,9 @@
 import { Injectable, HttpService } from '@nestjs/common';
-import { AxiosResponse } from 'axios';
 import { Product } from './products.model';
 import { ApiResonse } from './products.interface';
 import { UtilsService } from '../utils/utils.service';
 import { NetworkError } from '../utils/utils.interface';
+import * as Participants from '../participants.json';
 
 @Injectable()
 export class ProductsService {
@@ -14,7 +14,8 @@ export class ProductsService {
     this.fetchData = this.fetchData.bind(this);
   }
 
-  async fetchData(): Promise<Product | NetworkError> {
+  // Todo: ADD JSDOC COMMENTS
+  private async fetchData(): Promise<Product | NetworkError> {
     const response = await this.httpService
       .get('https://ca.desknibbles.com/products.json?limit=250')
       .toPromise();
@@ -32,7 +33,8 @@ export class ProductsService {
     });
   }
 
-  async getProducts() {
+  // Todo: ADD JSDOC COMMENTS
+  public async getAllProducts(): Promise<ApiResonse> {
     const fetchOrRetry = this.utilsService.fetchOrRetry;
     const callResponse = await fetchOrRetry(this.fetchData);
     const result: ApiResonse = {
@@ -46,9 +48,24 @@ export class ProductsService {
 
       result.error = [callResponse];
       return result;
-    } else {
-      result.data = callResponse;
-      return result;
     }
+    result.data = callResponse;
+    return result;
+  }
+
+  // Todo: ADD JSDOC COMMENTS
+  public async getPurchasedProducts(): Promise<Product[]> {
+    const participantPurchases = new Set<string>();
+
+    for (let person of Participants) {
+      participantPurchases.add(person.purchases);
+    }
+
+    const { data } = await this.getAllProducts();
+    const purchasedProducts = data.filter((item) =>
+      participantPurchases.has(item.title),
+    );
+
+    return purchasedProducts;
   }
 }

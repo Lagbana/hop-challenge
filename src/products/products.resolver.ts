@@ -4,15 +4,23 @@ import { Product } from './products.model';
 
 @Resolver()
 export class ProductsResolver {
+  #products: Product[];
+
   constructor(private readonly productService: ProductsService) {}
 
-  public products: Product[];
-
+  // Todo: ADD JSDOC COMMENTS
   @Query(() => [Product])
-  async getProducts() {
-    const { error, data } = await this.productService.getProducts();
-    this.products = data;
-    console.log(this.products[0]);
-    return this.products;
+  async getAllProducts(): Promise<Product[]> {
+    const { error, data } = await this.productService.getAllProducts();
+    error.length === 0 ? (this.#products = data) : null;
+
+    return this.#products;
+  }
+
+  // Todo: ADD JSDOC COMMENTS
+  @Query(() => [Product])
+  async getPurchasedProducts(): Promise<Product[]> {
+    const purchasedProducts = await this.productService.getPurchasedProducts();
+    return purchasedProducts;
   }
 }
