@@ -4,6 +4,7 @@ import { join } from 'path';
 import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { UtilsModule } from './utils/utils.module';
+import { ParticpantsModule } from './particpants/particpants.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { UtilsModule } from './utils/utils.module';
       introspection: true,
     }),
     UtilsModule,
+    ParticpantsModule,
   ],
   providers: [AppService],
 })
