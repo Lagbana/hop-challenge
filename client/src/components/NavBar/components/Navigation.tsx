@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 interface NavigationProps {
-    order?: number;
-    open: boolean;
+  order?: number;
+  open: boolean;
 }
 export const Navigation: React.FC<NavigationProps> = ({ order, open }) => {
   const theme = 'dark';
@@ -52,13 +53,22 @@ export const Navigation: React.FC<NavigationProps> = ({ order, open }) => {
   return (
     <Nav open={open}>
       <li>
-        <NavLinks href="/sales">Sales</NavLinks>
+        <Link style={{ textDecoration: 'none', color: color }} to="/sales">
+          Sales
+        </Link>
       </li>
       <li>
-        <NavLinks href="/inventory">Inventory</NavLinks>
+        <Link style={{ textDecoration: 'none', color: color }} to="/inventory">
+          Inventory
+        </Link>
       </li>
       <li>
-        <NavLinks href="/participants">Participants</NavLinks>
+        <Link
+          style={{ textDecoration: 'none', color: color }}
+          to="/participants"
+        >
+          Participants
+        </Link>
       </li>
     </Nav>
   );
