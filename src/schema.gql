@@ -27,6 +27,26 @@ type Variant {
   grams: Float!
 }
 
+type Participant {
+  _id: String!
+  balance: String!
+  company: String!
+  email: String!
+  name: String!
+  phone: String!
+  picture: String!
+  purchases: String!
+}
+
+type BuyingParticipants {
+  buyingParticipants: [Participant!]!
+  totalPurchases: Float!
+  totalBalances: Float!
+}
+
 type Query {
-  getProducts: [Product!]!
+  getAllProducts: [Product!]!
+  getPurchasedProducts: [Product!]!
+  getAllParticpants: [Participant!]!
+  getBuyingParticpants: BuyingParticipants!
 }
