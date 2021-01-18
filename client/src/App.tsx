@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  ApolloClient,
+  ApolloProvider,
+  NormalizedCacheObject,
+} from '@apollo/client';
+import { NavBar, Wrapper } from './components';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface appProps {
+  client: ApolloClient<NormalizedCacheObject>;
 }
+
+
+const App = ({ client }: appProps) => {
+  const Content = styled.div`
+    min-height: 80vh;
+    background-color: #c4c4c4;
+  `;
+
+  return (
+    <ApolloProvider client={client}>
+      <NavBar />
+      <Wrapper>
+        <Content>YELLOW</Content>
+      </Wrapper>
+    </ApolloProvider>
+  );
+};
 
 export default App;
