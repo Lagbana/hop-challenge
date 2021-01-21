@@ -6,14 +6,22 @@ import { ParticpantsService } from './particpants.service';
 export class ParticpantsResolver {
   constructor(private readonly particpantsService: ParticpantsService) {}
 
-  // Todo: ADD JSDOC COMMENTS
+  /**
+   * Returns all array of all event participants
+   * @endPoint {getAllParticpants}
+   * @returns Promise<Array<{Participant}>>
+   */
   @Query(() => [Participant])
   getAllParticpants(): Participant[] {
     const participants = this.particpantsService.getAllParticipants();
     return participants;
   }
 
-  // Todo: ADD JSDOC COMMENTS
+  /**
+   * Returns an object of buying partipants and their total balances and purchases
+   * @endPoint {getBuyingParticpants}
+   * @returns Promise<{BuyingParticipants}>
+   */
   @Query(() => BuyingParticipants)
   async getBuyingParticpants(): Promise<BuyingParticipants> {
     const buyingParticipants = await this.particpantsService.getBuyingParticpants();

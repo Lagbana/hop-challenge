@@ -3,28 +3,28 @@ import { Field, ObjectType } from '@nestjs/graphql';
 @ObjectType()
 export class Participant {
   @Field()
-  _id: string;
+  _id?: string;
 
   @Field()
-  balance: string;
+  balance?: string;
 
   @Field()
-  company: string;
+  company?: string;
 
   @Field()
-  email: string;
+  email?: string;
 
   @Field()
-  name: string;
+  name?: string;
 
   @Field()
-  phone: string;
+  phone?: string;
 
   @Field()
-  picture: string;
+  picture?: string;
 
   @Field()
-  purchases: string;
+  purchases?: string;
 
   /**
    * *Unused fields

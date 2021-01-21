@@ -13,8 +13,7 @@ export class UtilsService {
    * @param {function} fn
    * @param {Number} [retries=3]
    * @returns {Promise}
-   */
-
+  */
   fetchOrRetry(
     fn: Func,
     retries: number = 3,

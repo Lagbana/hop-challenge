@@ -14,8 +14,11 @@ export class ProductsService {
     this.fetchData = this.fetchData.bind(this);
   }
 
-  // Todo: ADD JSDOC COMMENTS
-  private async fetchData(): Promise<Product | NetworkError> {
+  /**
+   * Fetches the products from external API
+   * @returns Promise<{Product[] | NetworkError}>
+   */
+  private async fetchData(): Promise<Product[] | NetworkError> {
     const response = await this.httpService
       .get('https://ca.desknibbles.com/products.json?limit=250')
       .toPromise();
@@ -33,7 +36,10 @@ export class ProductsService {
     });
   }
 
-  // Todo: ADD JSDOC COMMENTS
+  /**
+   * Gets an array of all products
+   * @returns Promise<{ApiResonse}>
+   */
   public async getAllProducts(): Promise<ApiResonse> {
     const fetchOrRetry = this.utilsService.fetchOrRetry;
     const callResponse = await fetchOrRetry(this.fetchData);
@@ -43,7 +49,7 @@ export class ProductsService {
     };
 
     if (typeof callResponse === 'string') {
-      //TODO: Send error to Sentry
+      //TODO: Send error to Sentry or other error service
       console.error(callResponse);
 
       result.error = [callResponse];
@@ -53,7 +59,10 @@ export class ProductsService {
     return result;
   }
 
-  // Todo: ADD JSDOC COMMENTS
+  /**
+   * Gets an array of purchased products
+   * @returns Promise<{Product[]}>
+   */
   public async getPurchasedProducts(): Promise<Product[]> {
     const participantPurchases = new Set<string>();
 
