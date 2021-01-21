@@ -1,0 +1,16 @@
+query GetBuyingParticipants {
+  getBuyingParticpants {
+		buyingParticipants {
+		_id
+    	balance
+    	company
+    	email
+    	name
+    	phone
+    	picture
+    	purchases 
+    }
+	totalPurchases
+    totalBalances
+  }
+}

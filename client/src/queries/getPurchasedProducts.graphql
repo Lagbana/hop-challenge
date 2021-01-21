@@ -1,0 +1,22 @@
+query GetPurchasedProducts {
+  getPurchasedProducts {
+    id
+    title
+    body_html
+    published_at
+    vendor
+    product_type
+    tags
+    variants {
+      sku
+      featured_image {
+        id
+        src
+        width
+        height
+      }
+	  price
+	  grams
+    }
+  }
+}

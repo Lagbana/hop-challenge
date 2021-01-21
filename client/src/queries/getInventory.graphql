@@ -1,0 +1,23 @@
+query GetProducts {
+  getAllProducts {
+      body_html
+      id
+      product_type
+      published_at
+      tags
+      title
+      variants {
+        featured_image {
+          height
+          id
+          width
+          src
+        }
+        grams
+        price
+        sku
+      }
+      vendor
+    }
+  }
+

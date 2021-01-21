@@ -1,0 +1,12 @@
+query GetParticipants {
+  getAllParticpants {
+    _id
+    balance
+    company
+    email
+    name
+    phone
+    picture
+    purchases 
+  }
+}
