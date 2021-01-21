@@ -1,19 +1,28 @@
+import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Colors } from '../../../utils';
+import { useThemeContext } from '../../../store/useThemeContext';
 
 interface NavigationProps {
   order?: number;
   open: boolean;
+  onClick?: () => void;
 }
-export const Navigation: React.FC<NavigationProps> = ({ order, open }) => {
-  const theme = 'dark';
-  const color = theme === 'dark' ? 'white' : 'blue';
+export const Navigation: React.FC<NavigationProps> = ({
+  order,
+  open,
+  onClick,
+}) => {
+  const {
+    state: { NavLinks_COL, Drawer_COL },
+  } = useThemeContext();
 
-  const NavLinks = styled.a`
+  const StyledLink = styled(NavLink)`
     text-decoration: none;
-    color: ${color};
+    color: ${NavLinks_COL};
     &:hover {
-      color: red;
+      color: ${Colors.red};
     }
   `;
 
@@ -35,7 +44,7 @@ export const Navigation: React.FC<NavigationProps> = ({ order, open }) => {
         margin: 0;
         padding: 5vh 0vw 0vh 3vw;
         flex-flow: column nowrap;
-        background-color: green;
+        background-color: ${Drawer_COL};
         position: fixed;
         transform: ${({ open }) =>
           open ? `translateX(0)` : `translateX(100%)`};
@@ -53,22 +62,19 @@ export const Navigation: React.FC<NavigationProps> = ({ order, open }) => {
   return (
     <Nav open={open}>
       <li>
-        <Link style={{ textDecoration: 'none', color: color }} to="/sales">
+        <StyledLink to="/sales" onClick={onClick}>
           Sales
-        </Link>
+        </StyledLink>
       </li>
       <li>
-        <Link style={{ textDecoration: 'none', color: color }} to="/inventory">
+        <StyledLink to="/inventory" onClick={onClick}>
           Inventory
-        </Link>
+        </StyledLink>
       </li>
       <li>
-        <Link
-          style={{ textDecoration: 'none', color: color }}
-          to="/participants"
-        >
+        <StyledLink to="/participants" onClick={onClick}>
           Participants
-        </Link>
+        </StyledLink>
       </li>
     </Nav>
   );
