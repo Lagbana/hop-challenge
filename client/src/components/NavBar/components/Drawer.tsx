@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Navigation } from './Navigation';
-import { Theme } from '../../../utils';
-const theme = Theme();
+import { useThemeContext } from '../../../store/useThemeContext';
+
 
 export const Drawer = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const {
+    state: { Hamburger_COL },
+  } = useThemeContext();
 
   const DrawerNav = styled.div`
     display: none;
@@ -15,21 +18,20 @@ export const Drawer = () => {
     }
   `;
 
-  const Burger = styled.div<{ open: boolean }>`
-    width: 5vh;
-    height: 5vh;
-    position: fixed;
+  const HamBurger = styled.div<{ open: boolean }>`
+    width: 4vh;
+    height: 4vh;
     top: 1vh;
     right: 20px;
     display: none;
-    z-index: 5;
+    z-index: 20;
 
     div {
-      width: 5vh;
+      width: 4vh;
       height: 0.25rem;
       border-radius: 10px;
-      background: ${theme === 'dark' ? 'white' : 'black'};
-      transform-origin: 1.5px;
+      background-color: ${Hamburger_COL};
+      transform-origin: 1px;
 
       &:nth-child(1) {
         transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
@@ -62,12 +64,12 @@ export const Drawer = () => {
 
   return (
     <DrawerNav>
-      <Burger open={open} onClick={() => setOpen(!open)}>
+      <HamBurger open={open} onClick={() => setOpen(!open)}>
         <div />
         <div />
         <div />
-      </Burger>
-      <Navigation open={open} />
+      </HamBurger>
+      <Navigation open={open} onClick={() => setOpen(!open)} />
     </DrawerNav>
   );
 };
