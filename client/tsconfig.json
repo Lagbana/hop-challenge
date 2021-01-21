@@ -20,10 +20,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx" 
+    "jsx": "react-jsx"
   },
   "include": [
     "**/*.ts",
     "**/*.tsx"
-  ]
+, "update-build.js", "src/ClearCache.js"  ]
 }

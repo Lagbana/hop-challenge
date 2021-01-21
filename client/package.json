@@ -17,15 +17,16 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "tabulator-tables": "^4.9.3",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "react-tabulator": "^0.14.4",
+    "spinners-react": "^1.0.4",
+    "typescript": "4.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +47,10 @@
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.20.0",
+    "@graphql-codegen/typescript": "1.20.0",
+    "@graphql-codegen/typescript-operations": "1.17.13",
+    "@graphql-codegen/typescript-react-apollo": "2.2.1",
     "@types/styled-components": "^5.1.7",
     "styled-components": "^5.2.1"
   }
