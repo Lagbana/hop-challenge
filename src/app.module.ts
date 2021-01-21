@@ -19,7 +19,7 @@ import { ParticpantsModule } from './particpants/particpants.module';
       introspection: true,
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../client/build'),
+      rootPath: join(__dirname, '..', 'client/build'),
     }),
   ],
   providers: [AppService],
