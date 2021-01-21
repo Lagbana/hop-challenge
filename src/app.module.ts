@@ -1,4 +1,5 @@
-import { Module, Logger } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { AppService } from './app.service';
@@ -9,14 +10,17 @@ import { ParticpantsModule } from './particpants/particpants.module';
 @Module({
   imports: [
     ProductsModule,
+    UtilsModule,
+    ParticpantsModule,
     GraphQLModule.forRoot({
       debug: true,
       playground: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       introspection: true,
     }),
-    UtilsModule,
-    ParticpantsModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../client/build'),
+    }),
   ],
   providers: [AppService],
 })
