@@ -1,0 +1,4 @@
+/* Override Tabulator css */
+.tabulator-row .tabulator-cell{
+    height: 60px !important;
+}
