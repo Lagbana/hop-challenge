@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "nibbles-server",
   "version": "0.0.1",
   "description": "nibbles",
   "author": "Larry Agbana",
@@ -75,5 +75,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+   "engines": {
+    "node": "12.18.4",
+    "npm": "6.14.6"
   }
 }
