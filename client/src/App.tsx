@@ -23,13 +23,13 @@ const App = ({ client }: AppProps) => {
           <ThemeContainer>
             <Wrapper>
               <Switch>
-                <Route path="/inventory">
+                <Route exact path="/inventory">
                   <Inventory />
                 </Route>
-                <Route path="/participants">
+                <Route exact path="/participants">
                   <Participants />
                 </Route>
-                <Route path={['/', '/sales']}>
+                <Route exact path={['/', '/sales']}>
                   <Sales />
                 </Route>
               </Switch>
