@@ -75,7 +75,7 @@ export const Participants: React.FC<{}> = () => {
           <Card title={'Companies Represented'} backgroundColor={Colors.green}>
             {companiesRepresented}
           </Card>
-          <Card title={'Total Balances'} backgroundColor={Colors.navyBlue}>
+          <Card title={'Total Balances'} backgroundColor={Colors.lightBlue}>
             $ {String(totalBalance).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')}
           </Card>
           <Card title={'Top 3 balance holders'} backgroundColor={Colors.yellow}>

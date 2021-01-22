@@ -20,6 +20,8 @@ import { ParticpantsModule } from './particpants/particpants.module';
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client/build'),
+      exclude: ["/graphql"]
+
     }),
   ],
   providers: [AppService],

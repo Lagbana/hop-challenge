@@ -75,7 +75,7 @@ export const Inventory: React.FC<{}> = () => {
           <Card title={'Total Vendors'} backgroundColor={Colors.green}>
             {numberOfVendors}
           </Card>
-          <Card title={'Inventory Value'} backgroundColor={Colors.navyBlue}>
+          <Card title={'Inventory Value'} backgroundColor={Colors.lightBlue}>
             $ {Math.round(inventoryValue)}
           </Card>
           <Card title={'Inventory Weight'} backgroundColor={Colors.yellow}>
