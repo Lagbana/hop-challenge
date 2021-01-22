@@ -1,5 +1,6 @@
 overwrite: true
-schema: "https://nibbles-event.herokuapp.com/graphql"
+schema: "http://localhost:8080/graphql"
+# schema: "https://nibbles-event.herokuapp.com/graphql"
 documents: "src/**/*.graphql"
 generates:
   src/generated/graphql.tsx:
