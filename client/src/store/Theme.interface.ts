@@ -7,9 +7,6 @@ export interface IThemeColorsState {
   PageContainer_COL: string;
   Heading_COL: string;
   Title_COL: string;
-  List_COL: string;
-  Card_COL: string;
-  Tile_COL: string;
   Drawer_COL: string;
   Summary_COL: string;
   SummaryText_COL: string;

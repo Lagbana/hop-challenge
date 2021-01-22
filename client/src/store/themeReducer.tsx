@@ -21,10 +21,7 @@ export const themeReducer = (
         Hamburger_COL: Colors.white,
         Heading_COL: Colors.white,
         Title_COL: Colors.white,
-        List_COL: Colors.lightGrey,
         Drawer_COL: Colors.navyBlue,
-        Card_COL: '',
-        Tile_COL: '',
         Summary_COL: Colors.midGrey,
         SummaryText_COL: Colors.darkBlue,
       };
@@ -40,10 +37,7 @@ export const themeReducer = (
         PageContainer_COL: Colors.offWhite,
         Heading_COL: Colors.darkBlue,
         Title_COL: Colors.darkBlue,
-        List_COL: '',
         Drawer_COL: Colors.lightBlue,
-        Card_COL: '',
-        Tile_COL: '',
         Summary_COL: Colors.midGrey,
         SummaryText_COL: Colors.black,
       };

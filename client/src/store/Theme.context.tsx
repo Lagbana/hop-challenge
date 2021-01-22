@@ -11,10 +11,7 @@ export const initState = {
   PageContainer_COL: Colors.offWhite,
   Heading_COL: Colors.darkBlue,
   Title_COL: Colors.darkBlue,
-  List_COL: Colors.lighGreyRGB,
   Drawer_COL: Colors.lightBlue,
-  Card_COL: '',
-  Tile_COL: '',
   Summary_COL: Colors.midGrey,
   SummaryText_COL: Colors.black,
 };
