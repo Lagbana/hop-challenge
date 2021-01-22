@@ -7,6 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
+    "heroku-postbuild": "cd client && yarn install && yarn install && yarn build",
     "prestart:prod": "rimraf dist && npm run build",
     "postinstall": "npm run prestart:prod",
     "build": "tsc -p tsconfig.build.json",
@@ -78,6 +79,6 @@
   },
    "engines": {
     "node": "12.18.4",
-    "npm": "6.14.6"
+    "yarn": "1.22.5"
   }
 }
