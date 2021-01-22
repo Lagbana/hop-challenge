@@ -12,8 +12,8 @@ The main problems:
 Assumptions
 
 1. Leftover balance refers to total leftover balance of all purchasing participants.
-2. Consumer device type will vary to data display should adapt to the consumer.
-3. There will likely be more questions to answer in the future so app design should be flexible.
+2. Consumer device type will vary so data display should be responsive.
+3. There will likely be more questions to answer in the future so api design should be flexible.
 4. Data from API doesn't need to be stored.
 
 <br>
