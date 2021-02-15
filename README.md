@@ -1,5 +1,9 @@
 # nibbles
 
+### Run
+In terminal:
+npm start:dev && cd client && npm start
+
 ### Deployed App
 https://nibbles-event.herokuapp.com/
 
